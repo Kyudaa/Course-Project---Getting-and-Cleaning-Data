@@ -1,0 +1,39 @@
+
+--------------------------------------------------------------------------------
+Code book ---- for UCI HAR Dataset after transforming with the run_analysis.R script
+--------------------------------------------------------------------------------
+
+The raw data came from the UCI database and was published with the following description:
+"Human Activity Recognition database built from the recordings of 30 subjects performing activities of daily living (ADL) while carrying a waist-mounted smartphone with embedded inertial sensors."
+
+------------------------------
+Variables and transformations
+------------------------------
+The run_analysis.R script transforms the data to be more easily readable and analyzed the data focussing on mean and standard deviation.
+
+
+Variables:
+
+data - the complete merged dataset, which is constructed and relabled. All transformations      are performed on this
+tidy_data -the final product of the anylsis, after all transformations have been made
+data-URL - the url from which the raw data is downloaded
+subject_train & subject_test - subject ID's
+y_train & y_test - activities 
+x_train & x_test - features
+train_final & test_final - temporary variables combining subjects ID's and activites/ features
+col_mean & col_std - means and standard deviations of each measurement
+col_key - column one and two from the merged data variable (ID's & activities)
+labels - labels for activities
+
+
+Transformations:
+
+Several .txt files are read and combined into one table. While keeping the focus on the means and standard deviations of the measurements the columns are also relabled and transformed to be easier readable:
+
+Step 1: Data is downloaded and read
+Step 2: Column names are matched for activity labels, features and subjects ,making it possible to merge them into two tables: "train_final" & "test_final"
+Step 3: The two tables are merged to the "data" variable
+Step 4: Mean and std columns are extracted for each measurement
+Step 5: Activity labels are added to the "data" variable, originally they were codified through numbers
+Step 6: The column names are changed for better readability and understanding
+Step 7: The "tidy_data" variable is constructed while also taking averages of each variable
